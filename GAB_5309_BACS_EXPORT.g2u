@@ -1,0 +1,598 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.F_ContactList..create
+Gui.F_ContactList..caption("Email Purchase Order")
+Gui.F_ContactList..size(7545,7305)
+Gui.F_ContactList..position(0,0)
+Gui.F_ContactList..event(UnLoad,f_contactlist_unload)
+Gui.F_ContactList..alwaysontop(False)
+Gui.F_ContactList..fontname("Arial")
+Gui.F_ContactList..fontsize(8)
+Gui.F_ContactList..forecolor(0)
+Gui.F_ContactList..BackColor(-2147483633)
+Gui.F_ContactList..controlbox(True)
+Gui.F_ContactList..maxbutton(True)
+Gui.F_ContactList..minbutton(True)
+Gui.F_ContactList..mousepointer(0)
+Gui.F_ContactList..moveable(True)
+Gui.F_ContactList..sizeable(True)
+Gui.F_ContactList..ShowInTaskBar(True)
+Gui.F_ContactList..titlebar(True)
+Gui.F_ContactList..MinX(0)
+Gui.F_ContactList..MinY(0)
+Gui.F_ContactList.lstEmails.create(listview)
+Gui.F_ContactList.lstEmails.visible(True)
+Gui.F_ContactList.lstEmails.size(3210,1050)
+Gui.F_ContactList.lstEmails.zorder(0)
+Gui.F_ContactList.lstEmails.position(4005,495)
+Gui.F_ContactList.lstEmails.enabled(True)
+Gui.F_ContactList.lstEmails.fontname("Arial")
+Gui.F_ContactList.lstEmails.fontsize(8)
+Gui.F_ContactList.lstEmails.tabstop(False)
+Gui.F_ContactList.lstEmails.tabindex(0)
+Gui.F_ContactList.lstEmails.View(2)
+Gui.F_ContactList.txtEmail.create(textbox,"",True,3690,300,0,105,1200,True,0,Arial,8,-2147483643,1)
+Gui.F_ContactList.txtEmail.tabstop(True)
+Gui.F_ContactList.txtEmail.tabindex(1)
+Gui.F_ContactList.cmdAdd.create(button)
+Gui.F_ContactList.cmdAdd.caption("Add")
+Gui.F_ContactList.cmdAdd.visible(True)
+Gui.F_ContactList.cmdAdd.size(840,375)
+Gui.F_ContactList.cmdAdd.zorder(0)
+Gui.F_ContactList.cmdAdd.position(105,1605)
+Gui.F_ContactList.cmdAdd.enabled(True)
+Gui.F_ContactList.cmdAdd.fontname("Arial")
+Gui.F_ContactList.cmdAdd.fontsize(8)
+Gui.F_ContactList.cmdAdd.event(Click,cmdadd_click)
+Gui.F_ContactList.cmdAdd.tabstop(False)
+Gui.F_ContactList.cmdAdd.tabindex(0)
+Gui.F_ContactList.cmdRemove.create(button)
+Gui.F_ContactList.cmdRemove.caption("Remove")
+Gui.F_ContactList.cmdRemove.visible(True)
+Gui.F_ContactList.cmdRemove.size(810,375)
+Gui.F_ContactList.cmdRemove.zorder(0)
+Gui.F_ContactList.cmdRemove.position(1095,1605)
+Gui.F_ContactList.cmdRemove.enabled(True)
+Gui.F_ContactList.cmdRemove.fontname("Arial")
+Gui.F_ContactList.cmdRemove.fontsize(8)
+Gui.F_ContactList.cmdRemove.event(Click,cmdremove_click)
+Gui.F_ContactList.cmdRemove.tabstop(False)
+Gui.F_ContactList.cmdRemove.tabindex(0)
+Gui.F_ContactList.lbl1.create(label,"Choose an existing contact",True,2565,255,1,100,300,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.lbl2.create(label,"Enter an email address",True,2850,255,1,100,1000,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.cmdSend.create(button)
+Gui.F_ContactList.cmdSend.caption("Send")
+Gui.F_ContactList.cmdSend.visible(True)
+Gui.F_ContactList.cmdSend.size(855,360)
+Gui.F_ContactList.cmdSend.zorder(0)
+Gui.F_ContactList.cmdSend.position(105,6345)
+Gui.F_ContactList.cmdSend.enabled(True)
+Gui.F_ContactList.cmdSend.fontname("Arial")
+Gui.F_ContactList.cmdSend.fontsize(8)
+Gui.F_ContactList.cmdSend.event(Click,cmdsend_click)
+Gui.F_ContactList.cmdSend.tabstop(False)
+Gui.F_ContactList.cmdSend.tabindex(0)
+Gui.F_ContactList.mltxtBody.create(textboxm)
+Gui.F_ContactList.mltxtBody.text("")
+Gui.F_ContactList.mltxtBody.visible(True)
+Gui.F_ContactList.mltxtBody.size(7095,2595)
+Gui.F_ContactList.mltxtBody.zorder(0)
+Gui.F_ContactList.mltxtBody.position(105,3630)
+Gui.F_ContactList.mltxtBody.enabled(True)
+Gui.F_ContactList.mltxtBody.alignment(0)
+Gui.F_ContactList.mltxtBody.fontname("Arial")
+Gui.F_ContactList.mltxtBody.fontsize(8)
+Gui.F_ContactList.mltxtBody.BackColor(-2147483643)
+Gui.F_ContactList.mltxtBody.tabstop(False)
+Gui.F_ContactList.mltxtBody.tabindex(0)
+Gui.F_ContactList.txtSubject.create(textbox,"",True,6930,300,0,90,3000,True,0,Arial,8,-2147483643,1)
+Gui.F_ContactList.txtSubject.maxLength(72)
+Gui.F_ContactList.txtSubject.tabstop(False)
+Gui.F_ContactList.txtSubject.tabindex(0)
+Gui.F_ContactList.lbl3.create(label,"Subject",True,1935,255,1,100,2775,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.lbl4.create(label,"Body",True,1935,255,1,100,3405,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.lbl5.create(label,"Recipients",True,1935,255,1,4000,300,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.lbl6.create(label,"Reply To Email Address",True,1935,255,1,100,2125,True,0,Arial,8,-2147483633,0)
+Gui.F_ContactList.txtReplyEmail.create(textbox,"",True,3690,300,0,105,2355,True,0,Arial,8,-2147483643,1)
+Gui.F_ContactList.ddlContact.create(dropdownlist)
+Gui.F_ContactList.ddlContact.visible(True)
+Gui.F_ContactList.ddlContact.size(3690,330)
+Gui.F_ContactList.ddlContact.zorder(0)
+Gui.F_ContactList.ddlContact.position(105,540)
+Gui.F_ContactList.ddlContact.enabled(True)
+Gui.F_ContactList.ddlContact.fontname("Arial")
+Gui.F_ContactList.ddlContact.fontsize(8)
+Gui.F_ContactList.ddlContact.event(Click,ddlcontact_click)
+Gui.EffectiveDate..Create
+Gui.EffectiveDate..Size(2640,1905)
+Gui.EffectiveDate..MinX(0)
+Gui.EffectiveDate..MinY(0)
+Gui.EffectiveDate..Position(0,0)
+Gui.EffectiveDate..BackColor(-2147483633)
+Gui.EffectiveDate..MousePointer(0)
+Gui.EffectiveDate..Caption("Effective Date")
+Gui.EffectiveDate..Event(UnLoad,EffectiveDate_UnLoad)
+Gui.EffectiveDate.dtpEffectiveDate.Create(DatePicker)
+Gui.EffectiveDate.dtpEffectiveDate.Size(1935,285)
+Gui.EffectiveDate.dtpEffectiveDate.Position(255,525)
+Gui.EffectiveDate.lbl1.Create(Label,"Effective Date",True,1935,255,0,255,300,True,0,"Arial",8,-2147483633,0)
+Gui.EffectiveDate.cmdSelectEffDate.Create(Button)
+Gui.EffectiveDate.cmdSelectEffDate.Size(960,375)
+Gui.EffectiveDate.cmdSelectEffDate.Position(255,990)
+Gui.EffectiveDate.cmdSelectEffDate.Caption("Select")
+Gui.EffectiveDate.cmdSelectEffDate.Event(Click,cmdSelectEffDate_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.dEffectiveDate.Declare(Date)
+V.Global.sGSSVersion.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+V.Global.sGSSVersion.Set(V.Caller.GSSVersion)
+F.Intrinsic.String.Left(V.Global.sGSSVersion,4,V.Global.sGSSVersion)
+F.Intrinsic.Date.DateAdd("D", 3, V.Ambient.Date, V.Global.dEffectiveDate)
+GUI.EffectiveDate.dtpEffectiveDate.Value(V.Global.dEffectiveDate.DateComp)
+gui.EffectiveDate..show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.EffectiveDate..Visible(False)
+GUI.F_ContactList..Visible(False)
+F.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.Unload.End
+
+Program.Sub.EffectiveDate_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("EffectiveDate_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("EffectiveDate_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.EffectiveDate_UnLoad.End
+
+Program.Sub.cmdSelectEffDate_Click.Start
+F.Intrinsic.Control.SetErrorHandler("EffectiveDate_Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.dDateHold.Declare(Date)
+'This should be added to 3 business days or whatever days?
+'F.Intrinsic.Date.DateAdd("D", 3, V.Ambient.Date, v.Local.dDateHold)
+'f.Intrinsic.Control.If(V.Screen.EffectiveDate!dtpEffectiveDate.Value,<,v.Local.dDateHold)
+'	f.Intrinsic.UI.Msgbox("Effective date should have 3 days for processing. Please select another date","Select Effective Date")
+'	f.Intrinsic.Control.ExitSub
+'f.Intrinsic.Control.Endif
+V.Global.dEffectiveDate.Set(V.Screen.EffectiveDate!dtpEffectiveDate.Value)
+GUI.EffectiveDate..Visible(False)
+f.Intrinsic.Control.CallSub(PreProc)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("EffectiveDate_Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdSelectEffDate_Click.End
+
+Program.Sub.PreProc.Start
+F.Intrinsic.Control.SetErrorHandler("OpChk_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sFileRow.Declare
+v.Local.sFileWrite.Declare(String)
+v.Local..BulkDeclareString(sDest_Sort_Code, sDest_Acct_Num, sDest_Acct_Type, sBacs_Code, sDebit_Sort_Code, sDebit_Acct_Num, sFree_Format, sAmount, sOriginator_Name, sPayment_Ref, sDest_Acct_Name, sProcess_Date)
+V.Local.sInvoice.Declare
+v.Local.iCount.Declare(long)
+V.Local.iRet.Declare
+V.Local.fRet.Declare
+V.Local.sText.Declare
+V.Local.bExist.Declare
+V.Local.sTemp.Declare
+V.Local.sField.Declare
+
+'create table for loop in email section
+F.Data.DataTable.CreateFromSQL("ELoop", "con", "Select Distinct VENDOR_ID From V_AP_INTL_BACS where EXPORTED = '' And V_EMAIL_FLAG = '1' ", TRUE)
+'1/First checking for BACS records to actually export
+F.Data.DataTable.CreateFromSQL("EXT","con","Select * from V_AP_INTL_BACS where EXPORTED = ''", TRUE)
+Function.Intrinsic.Control.If(Variable.DataTable.EXT.RowCount, =, 0)
+	F.Intrinsic.UI.Msgbox("No BACS records found!","No Records")
+	F.Intrinsic.Control.CallSub(Unload)
+	f.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Else
+	'add column for email
+	F.Data.DataTable.AddColumn("EXT","EMAIL_FLAG","String")
+	F.Data.Dictionary.CreateFromSQL("DICT", "con","Select VENDOR_ID, EMAIL_FLAG From VEND_INTL_BACS")
+	F.Data.Dictionary.SetDefaultReturn("Dict", "")
+	F.Data.DataTable.FillFromDictionary("EXT","Dict","VENDOR_ID","EMAIL_FLAG")
+	F.Data.Dictionary.Close("Dict")
+	'2/Loop through the RecordSet, get the value, format, concatinate to build string to sFileWrite, set Exported column to 'Y'
+	'While waiting for the R&D Core, we can hard code here
+	f.Intrinsic.Control.For(v.Local.iCount,0,Variable.DataTable.EXT.RowCount--,1)
+		'Getting Destination Sort Code
+'		v.Local.sDest_Sort_Code.Set(Variable.DataTable.EXT(v.Local.iCount).V_DEST_BANK_SORT_CD!FieldValTrim)
+'		f.Intrinsic.String.LPad(v.Local.sDest_Sort_Code,"0",6,v.Local.sDest_Sort_Code)	
+'		'Getting Destination Account Number
+'		v.Local.sDest_Acct_Num.Set(Variable.DataTable.EXT(v.Local.iCount).V_DEST_BANK_ACCT!FieldValTrim)
+'		F.Intrinsic.String.LPad(V.Local.sDest_Acct_Num,"0",8,V.Local.sDest_Acct_Num)
+'		'Getting Destination Account Type
+'		V.Local.sDest_Acct_Type.Set(" ")
+'		f.Intrinsic.String.LPad(V.Local.sDest_Acct_Type," ",1,v.Local.sDest_Acct_Type)
+'		'Setting BACS Code
+'		v.Local.sBacs_Code.Set("99")
+'		f.Intrinsic.String.LPad(v.Local.sBacs_Code," ",2,v.Local.sBacs_Code)
+'		'Getting Debit Sort Code
+'		v.Local.sDebit_Sort_Code.Set("405162")
+'		f.Intrinsic.String.LPad(v.Local.sDebit_Sort_Code," ",6,v.Local.sDebit_Sort_Code)
+'		'Getting Debit Account Number
+'		v.Local.sDebit_Acct_Num.Set("11661424")
+'		f.Intrinsic.String.LPad(v.Local.sDebit_Acct_Num," ",8,v.Local.sDebit_Acct_Num)
+'		'Setting Free Format (4 spaces)
+'		v.Local.sFree_Format.Set("    ")
+		'Getting Amount and reformat it to no decimal with max character of 10 
+'		V.Local.fRet.Set(V.DataTable.EXT(V.Local.iCount).CHECK_AMT!FieldValFloat)
+'		v.Local.sAmount.Set(Variable.DataTable.EXT(v.Local.iCount).CHECK_AMT!FieldValTrim)
+'		F.Intrinsic.Math.ConvertToFloat(V.Local.sAmount,V.Local.fRet)
+'		V.Local.sText.Set(V.Local.sAmount)
+'		F.Intrinsic.String.ConvertToString(V.Local.fRet,V.Local.sText)
+'		F.Intrinsic.String.IsInString(V.Local.sText.Trim,".",True,V.Local.bExist)
+'		F.Intrinsic.Control.If(V.Local.bExist,=,False)
+'			F.Intrinsic.String.Concat(V.Local.sText.Trim,".00",V.Local.sTemp)
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.Math.Round(V.Local.fRet,2,V.Local.fRet)
+'			F.Intrinsic.String.ConvertToString(V.Local.fRet,V.Local.sTemp)
+'		F.Intrinsic.Control.EndIf
+'		F.Intrinsic.String.Split(V.Local.sTemp,".",V.Local.sText)
+'		F.Intrinsic.String.Len(V.Local.sText(1),V.Local.iRet)
+'		F.Intrinsic.Control.if(V.Local.iRet,=,1)
+'			F.Intrinsic.String.RPad(V.Local.sText(1),"0",2,V.Local.sTemp)
+'			F.Intrinsic.String.Concat(V.Local.sText(0),V.Local.sTemp,V.Local.sTemp)
+'		F.Intrinsic.Control.Else
+'			F.Intrinsic.String.Concat(V.Local.sText(0),V.Local.sText(1),V.Local.sTemp)
+'		F.Intrinsic.Control.EndIf
+'		F.Intrinsic.String.LPad(V.Local.sTemp,"0",10,V.Local.sTemp)
+'		V.Local.sAmount.Set(V.Local.sTemp)
+'		f.Intrinsic.String.LPad(v.Local.sAmount,"0",11,v.Local.sAmount)
+		'Getting Originators Name
+'		v.Local.sOriginator_Name.Set("SPRINT ELECTRIC")
+'		f.Intrinsic.String.UCase(v.Local.sOriginator_Name,v.Local.sOriginator_Name)
+'		f.Intrinsic.String.RPad(v.Local.sOriginator_Name," ",18,v.Local.sOriginator_Name)
+		'Getting Payment Reference
+'		v.Local.sPayment_Ref.Set(" PURCHASE INVOICE ")
+'		f.Intrinsic.String.LPad(v.Local.sPayment_Ref," ",18,v.Local.sPayment_Ref)
+		'Getting Destination Account Name
+'		v.Local.sDest_Acct_Name.Set(Variable.DataTable.EXT(v.Local.iCount).V_DEST_BANK_NAME!FieldValTrim)
+'		f.Intrinsic.String.UCase(v.Local.sDest_Acct_Name,v.Local.sDest_Acct_Name)
+'		f.Intrinsic.String.RPad(v.Local.sDest_Acct_Name," ",18,v.Local.sDest_Acct_Name)
+		'Getting Processing Date
+'		v.Local.sProcess_Date.Set("")
+'		f.Intrinsic.String.RPad(v.Local.sProcess_Date," ",6,v.Local.sProcess_Date)
+		'F.Intrinsic.String.Format(v.Global.dEffectiveDate,"DDMMYY",v.Local.sProcess_Date)
+		'Invoice no
+'		V.Local.sInvoice.Set(Variable.DataTable.EXT(v.Local.iCount).INVOICE_NO!FieldValTrim)
+		'Build the string for the line of the BACS text file
+'		f.Intrinsic.String.Concat(v.Local.sFileWrite, v.Local.sDest_Sort_Code, v.Local.sDest_Acct_Num, v.Local.sDest_Acct_Type, v.Local.sBacs_Code, v.Local.sDebit_Sort_Code, v.Local.sDebit_Acct_Num, v.Local.sFree_Format, v.Local.sAmount, v.Local.sOriginator_Name, v.Local.sPayment_Ref, v.Local.sDest_Acct_Name, v.Local.sProcess_Date,v.Local.sFileWrite)
+		F.Intrinsic.Control.If(V.Global.sGSSVersion,<,2019)
+			V.Local.sField.Set(Variable.DataTable.EXT(v.Local.iCount).V_DEST_BANK_ACCT!FieldValTrim)
+		F.Intrinsic.Control.Else
+			F.Global.Encryption.Decrypt(Variable.DataTable.EXT(v.Local.iCount).Bank_Account_Enc!FieldVal,V.Local.sField)
+		F.Intrinsic.Control.EndIf
+'			F.Intrinsic.Control.ElseIf(V.DataTable.dtFormat(V.Local.i1).FieldName!FieldVal,=,4)		
+		F.Intrinsic.String.Build("{0}{1}{0},{0}{2}{0},{0}{3}{0},{4},,,",V.Ambient.DblQuote,Variable.DataTable.EXT(v.Local.iCount).V_DEST_BANK_SORT_CD!FieldValTrim,V.Local.sField,Variable.DataTable.EXT(v.Local.iCount).VENDOR_NAME!FieldValTrim,V.DataTable.EXT(V.Local.iCount).CHECK_AMT!FieldVal,V.Local.sFileRow)
+'		F.Intrinsic.String.Build("{6}{0},{1},{2},{3},{4},{5}/{6},,,,,",V.Local.sDest_Sort_Code.Trim,V.Local.sDest_Acct_Name.Trim,V.Local.sDest_Acct_Num.Trim,V.Local.sAmount.Trim,V.Local.sOriginator_Name.Trim,V.Local.sBacs_Code.Trim,V.Ambient.DblQuote,V.Local.sFileRow)
+'		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.Ambient.NewLine,V.Local.sFileWrite)
+		F.Intrinsic.Control.If(V.Local.sFileWrite.Trim,=,"")
+			V.Local.sFileWrite.Set(V.Local.sFileRow)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Concat(V.Local.sFileWrite,V.Ambient.NewLine,V.Local.sFileRow,V.Local.sFileWrite)
+		F.Intrinsic.Control.EndIf
+	'End Loop
+	f.Intrinsic.Control.Next(v.Local.iCount)
+Function.Intrinsic.Control.EndIf
+'3/Save the Exported BACS file
+F.Intrinsic.Control.CallSub(filesave,"sFileWrite",v.Local.sFileWrite)
+'Set the Exported column in the BACS_PAYMENT to 'Y'
+F.Intrinsic.UI.Msgbox("Have the data been exported properly?","BACS ACH Export",4,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	Function.ODBC.Connection!con.Execute("Update AP_INTL_BACS Set EXPORTED = 'Y' Where EXPORTED = ''")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("OpChk_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.PreProc.End
+
+Program.Sub.FileSave.Start
+F.Intrinsic.Control.SetErrorHandler("FileSave_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFile.Declare(String)
+
+F.Intrinsic.UI.ShowSaveFileDialog("","csv|*.csv",V.Local.sFile)
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Args.sFileWrite)
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.Control.CallSub(filesave)
+F.Intrinsic.Control.EndIf
+'create email table
+Function.Intrinsic.Control.CallSub(CreateEmailTable)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FileSave_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.FileSave.End
+
+Program.Sub.f_contactlist_unload.Start
+F.Intrinsic.Control.SetErrorHandler("f_contactlist_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.UI.Msgbox("Click Send to send an Email to this Vendor")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("f_contactlist_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.f_contactlist_unload.End
+
+Program.Sub.cmdadd_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdadd_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sEmail.Declare(String)
+
+'Exit if no email selected or enetered
+F.Intrinsic.Control.If(V.Screen.F_ContactList!txtEmail.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please enter a recipient email address..","Invalid Email")
+	Gui.F_ContactList.txtEmail.SetFocus
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+'Checking for valid email
+V.Local.sEmail.Set(V.Screen.F_ContactList!txtEmail.Text)
+F.Intrinsic.String.Split(V.Local.sEmail.Trim,"@",V.Local.sEmail)
+F.Intrinsic.Control.If(V.Local.sEmail.UBound,<>,1)
+	F.Intrinsic.UI.Msgbox("Invalid email address.","Invalid Email")
+	Gui.F_ContactList.txtEmail.SetFocus
+	Gui.F_ContactList.txtEmail.SelectAll
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sEmail(1),".",V.Local.sEmail)
+	F.Intrinsic.Control.If(V.Local.sEmail.UBound,<,1)
+		F.Intrinsic.UI.Msgbox("Invalid email address.","Invalid Email")
+		Gui.F_ContactList.txtEmail.SetFocus
+		Gui.F_ContactList.txtEmail.SelectAll
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+'if we havent exitSub, then add the email
+GUI.F_ContactList.lstEmails.AddListItem(V.Screen.F_ContactList!txtEmail.Text,V.Screen.F_ContactList!txtEmail.Text)
+GUI.F_ContactList.txtEmail.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadd_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdadd_click.End
+
+Program.Sub.cmdremove_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdremove_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.F_ContactList.lstEmails.RemoveItem(V.Screen.F_ContactList!lstEmails.SelectedItemKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremove_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdremove_click.End
+
+Program.Sub.cmdsend_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdsend_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local..BulkDeclareString(sRow,sTo, sSubject, sBody)
+V.Local..BulkDeclareLong(iC, iID)
+'check there exists at least one email
+Gui.F_ContactList.lstEmails.RetrieveAllListItems(V.Local.sRow)
+Function.Intrinsic.Control.If(V.Local.sRow, =, "***NORETURN***")
+	F.Intrinsic.UI.Msgbox("Add an Email to Send")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+GUI.F_ContactList.cmdSend.DisableOnClick(11)
+F.Intrinsic.String.Split(V.Local.sRow, "*!*", V.Local.sRow)
+F.Intrinsic.Control.For(V.Local.iC, 0, V.Local.sRow.UBound, 1)
+	Function.Intrinsic.Control.If(V.Local.iC, =, 0)
+		F.Intrinsic.String.Build("{0}", V.Local.sRow(V.Local.iC), V.Local.sTo)
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}@!@{1}", V.Local.sTo,V.Local.sRow(V.Local.iC), V.Local.sTo)
+	Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+V.Local.sBody.Set(V.Screen.F_ContactList!mltxtBody.Text)
+V.Local.sSubject.Set(V.Screen.F_ContactList!txtSubject.Text)
+F.Global.Security.getuserID(V.Caller.User,V.Caller.CompanyCode,V.Local.iID)
+Function.Global.Messaging.QueueMessage(V.Caller.CompanyCode, V.local.iID, "", V.Local.sSubject, V.Screen.F_ContactList!txtReplyEmail.Text, V.Local.sTo, V.Local.sBody)
+'this happens last because of the wait for  dismiss
+Gui.F_ContactList..Visible(False)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdsend_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdsend_click.End
+
+Program.Sub.ddlcontact_click.Start
+F.Intrinsic.Control.SetErrorHandler("ddlcontact_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_ContactList!ddlContact.Text,<>,"")
+	Gui.F_ContactList.txtEmail.Text(V.Screen.F_ContactList!ddlContact.Text)
+F.Intrinsic.Control.Else
+	Gui.F_ContactList.txtEmail.Text("")
+F.Intrinsic.Control.endif
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlcontact_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.ddlcontact_click.End
+
+Program.Sub.CreateEmailTable.Start
+F.Intrinsic.Control.SetErrorHandler("CreateEmailTable_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local..BulkDeclareLong(iC, iCView, iCEmail)
+V.Local..BulkDeclareString(sVendor, sFilter, sInvoice, sAmount, ssql, sReplyEmail, sNotify, sBody)
+
+F.Intrinsic.Control.For(V.Local.iC, 0, V.DataTable.Eloop.RowCount--, 1)
+	V.Local.sVendor.Set(V.DataTable.ELoop(V.Local.iC).VENDOR_ID!FieldValTrim)
+	'select to dataview
+	F.Intrinsic.String.Build("VENDOR_ID = '{0}'", V.Local.sVendor,V.Local.sFilter)
+	Function.Data.DataView.Create("EXT", "EXT_V", 22, V.Local.sFilter, "")
+	'loop through dataview
+	V.Local.sInvoice.Set("")
+	V.Local.sAmount.Set("")
+	F.Intrinsic.Control.For(V.Local.iCView,0,Variable.DataView.EXT!EXT_V.RowCount--, 1)
+		'build 2 strings here: invoice and amount
+		Function.Intrinsic.Control.If(V.Local.iCView, =, 0)
+			F.Intrinsic.String.Build("{0}",Variable.DataView.EXT!EXT_V(V.Local.iCView).INVOICE_NO!FieldValTrim,V.Local.sInvoice)
+			F.Intrinsic.String.Build("{0}",Variable.DataView.EXT!EXT_V(V.Local.iCView).CHECK_AMT!FieldValTrim,V.Local.sAmount)
+		Function.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}, {1} ",V.Local.sInvoice ,Variable.DataView.EXT!EXT_V(V.Local.iCView).INVOICE_NO!FieldValTrim,V.Local.sInvoice)
+			F.Intrinsic.String.Build("{0}, {1} ",V.Local.sAmount ,Variable.DataView.EXT!EXT_V(V.Local.iCView).CHECK_AMT!FieldValTrim,V.Local.sAmount)
+		Function.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCView)
+	F.Data.DataView.Close("EXT", "EXT_V")
+		'set gui variables
+		'set ddl with dataTable
+		GUI.F_ContactList.ddlContact.AddItem("")
+		F.Intrinsic.String.Build("Select EMAIL1 From CONTACT Where CUST = '{0}'", V.Local.sVendor, V.Local.ssql)
+		F.Data.DataTable.CreateFromSQL("EMAIL", "con", V.Local.ssql)
+		F.Intrinsic.Control.For(V.Local.iCEmail, 0, V.DataTable.EMAIL.RowCount--, 1)
+			GUI.F_ContactList.ddlContact.AddItem(Variable.DataTable.EMAIL(V.Local.iCEmail).EMAIL1!FieldValTrim)
+		F.Intrinsic.Control.Next(V.Local.iCEmail)
+		F.Data.DataTable.Close("EMAIL")
+		F.Intrinsic.String.Build("Select EMAIL2 From CONTACT Where CUST = '{0}'", V.Local.sVendor, V.Local.ssql)
+		F.Data.DataTable.CreateFromSQL("EMAIL", "con", V.Local.ssql)
+		F.Intrinsic.Control.For(V.Local.iCEmail, 0, V.DataTable.EMAIL.RowCount--, 1)
+			GUI.F_ContactList.ddlContact.AddItem(Variable.DataTable.EMAIL(V.Local.iCEmail).EMAIL2!FieldValTrim)
+		F.Intrinsic.Control.Next(V.Local.iCEmail)
+		F.Data.DataTable.Close("EMAIL")	
+		F.Intrinsic.String.Build("BACS Email Notificiation For '{0}'", V.Local.sVendor, V.Local.sNotify)
+		Gui.F_ContactList..Caption(V.Local.sNotify)
+		'set reply to email
+		F.Global.Security.GetUserEmail(V.Caller.User,V.Caller.CompanyCode,V.Local.sReplyEmail)
+		GUI.F_ContactList.txtReplyEmail.Text(V.Local.sReplyEmail)
+		'set subject email
+		GUI.F_ContactList.txtSubject.Text("BACS Payment Notification")
+		'set body email
+		F.Intrinsic.String.Build("Company: {0}{1}{1}Invoices: {2}{3}{3}Payment Amount: {4}{5}{5}",V.Local.sVendor,V.Ambient.NewLine,V.Local.sInvoice,V.Ambient.NewLine,V.Local.sAmount,V.Ambient.NewLine,V.Local.sBody)
+		Gui.F_ContactList.mltxtBody.Text(V.Local.sBody.Trim)	
+		'get emails: when user clicks send
+		Gui.F_ContactList..Visible(True)
+		GUI.F_ContactList..WaitForDismiss
+		GUI.F_ContactList.ddlContact.ClearItems
+		GUI.F_ContactList.txtReplyEmail.Text("")
+		Gui.F_ContactList.mltxtBody.Text("")
+		GUI.F_ContactList.lstEmails.ClearItems
+F.Intrinsic.Control.Next(V.Local.iC)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CreateEmailTable_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5309_BACS_EXPORT.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.CreateEmailTable.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$Sales Order Approval dashboard for approver listing SO to be approved
+${$5$}$2.0.0.0$}$2
+${$6$}$dyunus$}$20200724081906466$}$xZ6SHi8g7O0Qsxe6AiO2NH3PnOKQRy0Tf/tkEvwYUaRTeD3cQSOUP0K4h/fx7CS5fVk25XxQ0Os=
+Program.Sub.Comments.End
